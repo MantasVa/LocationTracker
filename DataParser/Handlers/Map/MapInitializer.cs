@@ -22,7 +22,7 @@ namespace DataParser.Handlers.Map
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             GMapControl gmap = GetGMapControlInstance();
-            gmap.MapProvider = GoogleMapProvider.Instance;
+            gmap.MapProvider = OpenStreetMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.Zoom = 13;
             gmap.MinZoom = 2;

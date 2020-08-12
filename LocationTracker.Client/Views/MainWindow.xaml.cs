@@ -1,5 +1,6 @@
 ﻿using DataParser;
 using DataParser.Handlers.Map;
+using DataParser.Infrastructure.Interfaces;
 using DataParser.Infrastructure.Visitor;
 using DataParser.Models;
 using System;
@@ -71,7 +72,8 @@ namespace LocationTracker.Client.Views
             data.Accept(gpsDataVisitor);
             _gpsData = gpsDataVisitor.GpsData;
             gpsElementsListView.ItemsSource = _gpsData;
-            _markersHandler.LoadMarkers(_gpsData);
+
+            _markersHandler.Handle(_gpsData, MapStrategyInitializer.GetRouteStrategy(data.Data.First().Value));
         }
 
         private void HandleAvlTableDataGrid(CompositeData data)

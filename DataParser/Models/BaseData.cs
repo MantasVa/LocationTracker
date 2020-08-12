@@ -99,7 +99,7 @@ namespace DataParser.Models
                     Array.Reverse(subArray);
                     return AvlEpoch.AddMilliseconds(BitConverter.ToInt64(subArray, 0)).ToString();
                 // Tcp types
-                case DataType.MessageID:
+                case DataType.VehicleID:
                 case DataType.PacketDataArrayLength:
                 case DataType.Error:
                     Array.Reverse(subArray);

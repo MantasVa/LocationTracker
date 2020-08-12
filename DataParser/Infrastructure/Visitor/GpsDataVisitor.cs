@@ -26,11 +26,11 @@ namespace DataParser.Infrastructure.Visitor
             }
             else if (componentData.Name == "Longitude")
             {
-                _currentGpsData.Longitude = (Double.Parse(componentData.Value) / 10000000).ToString();
+                _currentGpsData.Longitude = (Double.Parse(componentData.Value) / 1000000).ToString();
             }
             else if (componentData.Name == "Latitude")
             {
-                _currentGpsData.Latitude = (Double.Parse(componentData.Value) / 10000000).ToString();
+                _currentGpsData.Latitude = (Double.Parse(componentData.Value) / 1000000).ToString();
 
                 if (_currentGpsData != null)
                     GpsData.Add(_currentGpsData);

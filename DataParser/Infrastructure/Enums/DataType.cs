@@ -18,8 +18,8 @@ namespace DataParser.Infrastructure.Enums
         Satellites,
         Speed,
         // Tcp types
-        [Display(Name = "Message ID")]
-        MessageID,
+        [Display(Name = "Vehicle ID")]
+        VehicleID,
         [Display(Name = "Packet Data Length")]
         PacketDataArrayLength,
         [Display(Name = "Error")]

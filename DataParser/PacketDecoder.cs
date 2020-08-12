@@ -34,7 +34,7 @@ namespace DataParser
         private CompositeData DecodeTCPData()
         {
             var parsedPacket = new CompositeData("TCP Data Packet");
-            parsedPacket.Add(_reader.ReadData(4, DataType.MessageID));
+            parsedPacket.Add(_reader.ReadData(4, DataType.VehicleID));
             parsedPacket.Add(_reader.ReadData(4, DataType.PacketDataArrayLength));
             parsedPacket.Add(DecodeAvlData());
 

@@ -1,7 +1,10 @@
-﻿using DataParser.Models;
+﻿using DataParser.Infrastructure.Interfaces;
+using DataParser.Models;
 using GMap.NET;
+using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,6 +14,7 @@ namespace DataParser.Handlers.Map
     {
         private readonly GMapControl _gmap;
         private GpsData _previouslySelectedGpsData;
+        public float GetMarkersDistance { get; private set; }
 
         public MarkersHandler(MapInitializer mapInitializer)
         {
@@ -25,7 +29,6 @@ namespace DataParser.Handlers.Map
             }
 
             ChangeMarkerColor(gpsData, GMarkerGoogleType.green_small);
-
             _previouslySelectedGpsData = gpsData;
         }
 
@@ -40,11 +43,20 @@ namespace DataParser.Handlers.Map
             AddMarker(marker);
         }
 
-        public void LoadMarkers(IList<GpsData> gpsData)
+        public void Handle(IList<GpsData> gpsData, IRouteStrategy routeStrategy)
+        {
+            IList<PointLatLng> points = GetRoutePoints(gpsData);
+            var routes = routeStrategy.GetRouteOverlay(points);
+            GetMarkersDistance = routeStrategy.TravelDistance;
+            _gmap.Overlays.Add(routes);
+
+            _gmap.Zoom++;
+            _gmap.Zoom--;
+        }
+
+        private IList<PointLatLng> GetRoutePoints(IList<GpsData> gpsData)
         {
             _gmap.Overlays.Clear();
-
-
             var markers = new GMapOverlay("markers");
             IList<PointLatLng> points = new List<PointLatLng>();
             foreach (var selector in gpsData)
@@ -62,17 +74,20 @@ namespace DataParser.Handlers.Map
                 markers.Markers.Add(marker);
 
             }
-            _gmap.Zoom = 19;
+            _gmap.Zoom = 17;
             _gmap.Position = GetPointLatLng(points.Last().Lat.ToString(), points.Last().Lng.ToString());
-
             _gmap.Overlays.Add(markers);
-
-            DrawPolygon(points);
+            return points;
         }
 
         public void CenterMapToMarker(GpsData gpsData)
         {
             _gmap.Position = gpsData.Coordinates;
+        }
+
+        public void LoadMarkers(IList<GpsData> gpsData, object getRouteStrategy)
+        {
+            throw new NotImplementedException();
         }
 
         private PointLatLng GetPointLatLng(string lat, string lng)
@@ -95,19 +110,6 @@ namespace DataParser.Handlers.Map
             overlay.Markers.Remove(marker);
         }
 
-        private void DrawPolygon(IList<PointLatLng> points)
-        {
-            GMapOverlay polyOverlay = new GMapOverlay("overlay");
-            GMapRoute polygon = new GMapRoute(points, "mypolygon")
-            {
-                Stroke = new System.Drawing.Pen(System.Drawing.Color.Red, 1)
-            };
-            polyOverlay.Routes.Add(polygon);
-            _gmap.Overlays.Add(polyOverlay);
-
-            _gmap.Zoom++;
-            _gmap.Zoom--;
-        }
         private GMapOverlay GetOverlayById(string id)
         {
             return _gmap.Overlays.Where(m => m.Id == id).FirstOrDefault();

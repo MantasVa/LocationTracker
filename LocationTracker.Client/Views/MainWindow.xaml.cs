@@ -75,6 +75,7 @@ namespace LocationTracker.Client.Views
             gpsElementsListView.ItemsSource = _gpsData;
 
             _markersHandler.Handle(_gpsData, MapStrategyFactory.GetRouteStrategy(data.Data.First().Value));
+            distanceText.Text = _markersHandler.GetMarkersDistance.ToString();
         }
 
         private void HandleAvlTableDataGrid(CompositeData data)

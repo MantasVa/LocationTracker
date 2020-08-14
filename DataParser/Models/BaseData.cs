@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using DataType = DataParser.Infrastructure.Enums.DataType;
 
 namespace DataParser.Models
@@ -15,14 +16,12 @@ namespace DataParser.Models
         {
             _name = name;
         }
-
         public BaseData(DataType dataType, ArraySegment<byte> arraySegment)
         {
             DataType = dataType;
             Value = GetStringValue(arraySegment, dataType);
             ArraySegment = arraySegment;
         }
-
         public DataType DataType { get; set; }
         public ArraySegment<byte> ArraySegment { get; set; }
         public string Value { get; set; }

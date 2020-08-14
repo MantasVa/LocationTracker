@@ -1,12 +1,10 @@
-﻿using DataParser.Infrastructure.Interfaces;
-using GMap.NET;
+﻿using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
-using System;
+using MapVisualizer.Infrastructure.Inferfaces;
 using System.Collections.Generic;
-using System.Text;
 
-namespace DataParser.Handlers.Map
+namespace MapVisualizer.Infrastructure.Strategy
 {
     public class VehicleTravelStrategy : IRouteStrategy
     {

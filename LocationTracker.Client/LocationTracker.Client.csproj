@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataParser\DataParser.csproj" />
+    <ProjectReference Include="..\MapVisualizer\MapVisualizer.csproj" />
   </ItemGroup>
 
 </Project>

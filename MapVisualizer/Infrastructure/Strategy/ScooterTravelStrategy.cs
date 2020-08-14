@@ -1,12 +1,10 @@
-﻿using DataParser.Infrastructure.Interfaces;
-using GMap.NET;
+﻿using GMap.NET;
 using GMap.NET.WindowsForms;
-using System;
+using MapVisualizer.Infrastructure.Inferfaces;
 using System.Collections.Generic;
 using System.Device.Location;
-using System.Text;
 
-namespace DataParser.Handlers.Map
+namespace MapVisualizer.Infrastructure.Strategy
 {
     public class ScooterTravelStrategy : IRouteStrategy
     {
@@ -33,9 +31,6 @@ namespace DataParser.Handlers.Map
                 c2 = new GeoCoordinate(points[i + 1].Lat, points[i + 1].Lng);
                 TravelDistance += (float)c1.GetDistanceTo(c2) / 1000;
             }
-
-
-
         }
     }
 }

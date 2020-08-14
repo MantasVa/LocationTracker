@@ -1,8 +1,11 @@
 ﻿using DataParser.Infrastructure.Interfaces;
 using DataParser.Models;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Text;
 
-namespace DataParser.Infrastructure.Visitor
+namespace LocationTracker.Client.Infrastructure.Visitor
 {
     public class TransposedPacketDataVisitor : IVisitor
     {

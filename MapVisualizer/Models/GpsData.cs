@@ -1,6 +1,6 @@
 ﻿using GMap.NET;
 
-namespace DataParser.Models
+namespace MapVisualizer.Models
 {
     public class GpsData
     {

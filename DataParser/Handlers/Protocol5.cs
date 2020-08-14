@@ -4,7 +4,7 @@ using DataParser.Infrastructure.Enums;
 using DataParser.Models;
 using System;
 
-namespace DataParser.Handlers.Packets
+namespace DataParser.Handlers
 {
     public class Protocol5 : PacketData
     {

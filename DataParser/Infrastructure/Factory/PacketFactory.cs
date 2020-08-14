@@ -1,4 +1,4 @@
-﻿using DataParser.Handlers.Packets;
+﻿using DataParser.Handlers;
 using System;
 
 namespace DataParser.Infrastructure.Factory

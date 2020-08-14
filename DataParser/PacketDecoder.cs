@@ -1,4 +1,4 @@
-﻿using DataParser.Handlers.Packets;
+﻿using DataParser.Handlers;
 using DataParser.Infrastructure;
 using DataParser.Infrastructure.Enums;
 using DataParser.Infrastructure.Factory;

@@ -2,12 +2,12 @@
 using GMap.NET.WindowsForms;
 using System.Net;
 
-namespace DataParser.Handlers.Map
+namespace MapVisualizer
 {
-    public class MapInitializer
+    public static class MapInitializer
     {
-        private GMapControl _gmapControl;
-        private GMapControl GetGMapControlInstance()
+        private static GMapControl _gmapControl;
+        private static GMapControl GetGMapControlInstance()
         {
             if (_gmapControl == null)
             {
@@ -16,7 +16,7 @@ namespace DataParser.Handlers.Map
             return _gmapControl;
         }
 
-        public GMapControl GetGMapControl()
+        public static GMapControl GetGMapControl()
         {
             GMapProvider.UserAgent = "cferreira GMap tool 1.0";
             ServicePointManager.Expect100Continue = true;

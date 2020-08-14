@@ -1,7 +1,7 @@
 ﻿using DataParser.Infrastructure;
 using DataParser.Models;
 
-namespace DataParser.Handlers.Packets
+namespace DataParser.Handlers
 {
     public abstract class PacketData
     {

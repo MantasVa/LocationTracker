@@ -2,7 +2,7 @@
 using DataParser.Infrastructure.Enums;
 using DataParser.Models;
 
-namespace DataParser.Handlers.Packets
+namespace DataParser.Handlers
 {
     public class Protocol4 : PacketData
     {

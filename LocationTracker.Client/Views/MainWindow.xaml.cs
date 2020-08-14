@@ -1,8 +1,10 @@
 ﻿using DataParser;
-using DataParser.Handlers.Map;
-using DataParser.Infrastructure.Interfaces;
-using DataParser.Infrastructure.Visitor;
 using DataParser.Models;
+using LocationTracker.Client.Infrastructure.Visitor;
+using MapVisualizer;
+using MapVisualizer.Handlers;
+using MapVisualizer.Infrastructure.Factory;
+using MapVisualizer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +26,8 @@ namespace LocationTracker.Client.Views
         public MainWindow()
         {
             InitializeComponent();
-            var mapInitializer = new MapInitializer();
-            _markersHandler = new MarkersHandler(mapInitializer);
-            gmapHost.Child = mapInitializer.GetGMapControl();
+            _markersHandler = new MarkersHandler();
+            gmapHost.Child = MapInitializer.GetGMapControl();
         }
 
 
@@ -73,7 +74,7 @@ namespace LocationTracker.Client.Views
             _gpsData = gpsDataVisitor.GpsData;
             gpsElementsListView.ItemsSource = _gpsData;
 
-            _markersHandler.Handle(_gpsData, MapStrategyInitializer.GetRouteStrategy(data.Data.First().Value));
+            _markersHandler.Handle(_gpsData, MapStrategyFactory.GetRouteStrategy(data.Data.First().Value));
         }
 
         private void HandleAvlTableDataGrid(CompositeData data)

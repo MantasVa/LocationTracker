@@ -1,11 +1,9 @@
-﻿using DataParser.Infrastructure.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MapVisualizer.Infrastructure.Inferfaces;
+using MapVisualizer.Infrastructure.Strategy;
 
-namespace DataParser.Handlers.Map
+namespace MapVisualizer.Infrastructure.Factory
 {
-    public static class MapStrategyInitializer
+    public static class MapStrategyFactory
     {
         public static IRouteStrategy GetRouteStrategy(string type)
         {

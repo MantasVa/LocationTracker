@@ -1,14 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GMap.Net" Version="1.0.1" />
     <PackageReference Include="GMap.NET.Core" Version="2.0.1" />
     <PackageReference Include="GMap.NET.Windows" Version="2.0.1" />
-    <PackageReference Include="GMap.NET.WinForms" Version="2.0.1" />
-    <PackageReference Include="GMap.NET.WinPresentation" Version="2.0.1" />
+    <PackageReference Include="GMap.NET.WindowsForms" Version="1.7.5" />
     <PackageReference Include="System.Device.Location.Portable" Version="1.0.0" />
   </ItemGroup>
 

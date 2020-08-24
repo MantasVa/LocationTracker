@@ -1,7 +1,17 @@
-# LocationTracker
+# Location Tracker
 
-TCP Packet: 
+Location tracker is a tool used to parse data coming in from the device and show travel path and distance. There are two modes for travel, walk and drive. They use different strategies to display and calculate travel path.
 
+## Getting Started
+
+1. Clone project from https://github.com/MantasVa/LocationTracker.
+2. Open project solution.
+3. Start **LocationTracker.Client** project.
+4. Insert one of sample packets into the textbox and press Decode.
+
+**Sample Packets:**
+```
+TCP Packet:
 00000000000002CE04
 08
 00000173CB41FBF000 018194B8 034239D9 08EA00000C0000
@@ -15,4 +25,24 @@ TCP Packet:
 08
 00005252
 
-UDP Packet: 0374CAFE0101000F3335393633333130343738303831370401000001729DB3C9A8010181AD4B03423CA9808EA00000C000001
+UDP Packet: 
+0374CAFE0101000F3335393633333130343738303831370401000001729DB3C9A8010181AD4B03423CA9808EA00000C000001
+```
+
+
+### Prerequisites
+
+- .Net Core SDK 3.x
+- .Net Core runtime 3.x
+- Any environmental to run .Net Core SDK 3.x (e.g. Visual Studio 2019, Visual Code ect..)
+
+
+## Built With
+* [GMap.NET](https://github.com/judero01col/GMap.NET) - Maps
+
+## Authors
+
+* **Aidanas Naugzemis**  - [Profile](https://github.com/Aidanas93)
+* **Mantas Valuckas** - [Profile](https://github.com/MantasVa)
+
+

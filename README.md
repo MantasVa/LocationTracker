@@ -1,6 +1,6 @@
 # Location Tracker
 
-Location tracker is a tool used to parse data coming in from the device and show travel path and distance. There are two modes for travel, walk and drive. They use different strategies to display and calculate travel path.
+Location tracker is a **WPF** based tool used to parse data coming in from the device and show travel path and distance. There are two modes for travel, walk and drive. They use different strategies to display and calculate travel path.
 
 ## Getting Started
 
@@ -39,6 +39,14 @@ UDP Packet:
 
 ## Built With
 * [GMap.NET](https://github.com/judero01col/GMap.NET) - Maps
+* **SOLID**
+
+## Used Following Patterns
+* **Visitor**
+* **Strategy**
+* **Factory**
+* **Composite**
+* **Template Method**
 
 ## Authors
 
